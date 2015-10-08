@@ -6,11 +6,9 @@ nav.navbar.navbar-default.navbar-fixed-top
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand href="#"  TopTal TODO Application
+      a.navbar-brand href="/"  TopTal TODO Application
     #navbar.navbar-collapse.collapse
       ul.nav.navbar-nav
-        li.active
-          a href="#"  Home
         li
           a href="#about"  About
         li
@@ -32,7 +30,10 @@ nav.navbar.navbar-default.navbar-fixed-top
               a href="#"  Separated link
             li
               a href="#"  One more separated link
-      ul.nav.navbar-nav.navbar-right
-        li: a href="/login" Login
-        li: a href="/sign_up" Sign Up
-
+      ul.nav.navbar-nav.navbar-right ng-controller="core.SessionCtrl as ctrl"
+        li ng-if="!user.signedIn"
+          a href="#/login" Login
+        li ng-if="!user.signedIn"
+          a href="#/sign_up" Sign Up
+        li ng-if="user.signedIn"
+          a ng-click="ctrl.logout()" Logout

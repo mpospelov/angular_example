@@ -138,7 +138,6 @@ GEM
     has_scope (0.6.0)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
-    hashie (3.4.2)
     hike (1.2.3)
     http_parser.rb (0.6.0)
     i18n (0.7.0)
@@ -176,9 +175,6 @@ GEM
     notiffany (0.0.8)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    omniauth (1.2.2)
-      hashie (>= 1.2, < 4)
-      rack (~> 1.0)
     orm_adapter (0.5.0)
     pg (0.18.3)
     polyamorous (1.2.0)
@@ -317,13 +313,13 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   database_cleaner
+  devise
   devise_token_auth
   factory_girl_rails
   faker
   gon
   guard-livereload
   guard-rspec
-  omniauth
   pg
   quiet_assets
   rails (= 4.2.4)

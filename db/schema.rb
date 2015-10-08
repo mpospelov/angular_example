@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151008100444) do
+ActiveRecord::Schema.define(version: 20151008165620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,17 @@ ActiveRecord::Schema.define(version: 20151008100444) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "tasks", force: :cascade do |t|
+    t.string   "description"
+    t.datetime "date"
+    t.integer  "duration"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "provider",               default: "email", null: false
     t.string   "uid",                    default: "",      null: false
@@ -61,10 +72,6 @@ ActiveRecord::Schema.define(version: 20151008100444) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
     t.string   "name"
     t.string   "nickname"
     t.string   "image"
@@ -78,4 +85,5 @@ ActiveRecord::Schema.define(version: 20151008100444) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
 
+  add_foreign_key "tasks", "users"
 end

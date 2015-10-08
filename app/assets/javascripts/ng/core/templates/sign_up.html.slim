@@ -1,6 +1,6 @@
 form.form-signin
-  h2.form-signin-heading Please login
-  label.sr-only for="email" Email address
+  h2.form-signin-heading Please sign up
+  label.sr-only for="email"  Email address
   input.form-control(
     autofocus=""
     name="email"
@@ -9,7 +9,7 @@ form.form-signin
     type="email"
     ng-model="form.email"
   )
-  label.sr-only for="inputPassword" Password
+  label.sr-only for="inputPassword"  Password
   input.form-control(
     name="password"
     placeholder="Password"
@@ -18,5 +18,5 @@ form.form-signin
     ng-model="form.password"
   )
   button.btn.btn-lg.btn-primary.btn-block(
-    ng-click="ctrl.login()"
-    type="submit") Login
+    ng-click="ctrl.register()"
+    type="submit") Sign up

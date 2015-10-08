@@ -2,6 +2,8 @@
 #= require lodash
 #= require moment
 #= require angular
+#= require ng-token-auth
+#= require angular-cookie
 #= require angular-rails-templates
 #= require angular-bootstrap
 #= require angular-route

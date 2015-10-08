@@ -3,20 +3,31 @@
   'ui.bootstrap'
   'restangular'
   'ngRoute'
-]).config [
+  'ng-token-auth'
+])
+.config([
   '$routeProvider', '$locationProvider',
   ($routeProvider, $locationProvider)->
     $routeProvider
     .when('/',
       templateUrl: "core/templates/index.html"
-      controller: 'core.HomeCtrl'
+      controller: 'core.HomeCtrl as ctrl'
     )
-    .when('/login', templateUrl: 'core/templates/login.html')
-    # .when('/Book/:bookId/ch/:chapterId', {
-    #   templateUrl: 'chapter.html',
-    #   controller: 'ChapterController'
-    # });
+    .when('/login',
+      templateUrl: 'core/templates/login.html'
+      controller: 'core.SessionCtrl as ctrl'
+    )
+    .when('/sign_up',
+      templateUrl: 'core/templates/sign_up.html'
+      controller: 'core.SignUpCtrl as ctrl'
+    )
+])
+.config([
+  '$authProvider',
+  ($authProvider)->
+    $authProvider.configure
+      apiUrl: '/api'
+      handleTokenValidationResponse: (response)->
+        _.merge Env.currentUser, response.data
+])
 
-    # // configure html5 to get links working on jsfiddle
-    $locationProvider.html5Mode(true)
-]
