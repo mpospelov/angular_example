@@ -8,6 +8,7 @@
     "angular-bootstrap": "0.13.4",
     "jquery": "2.1.4",
     "restangular": "1.5.1",
-    "alertify": "0.3.10"
+    "alertify": "0.3.10",
+    "angular-route": "1.4.7"
   }
 }

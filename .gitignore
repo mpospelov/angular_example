@@ -13,5 +13,6 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*
+/vendor/assets/bower_components
 !/log/.keep
 /tmp
