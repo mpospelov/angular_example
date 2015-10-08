@@ -21,6 +21,10 @@
       templateUrl: 'core/templates/sign_up.html'
       controller: 'core.SignUpCtrl as ctrl'
     )
+    .when('/settings'
+      templateUrl: 'core/templates/settings.html'
+      controller: 'core.SettingsCtrl as ctrl'
+    )
 ])
 .config([
   '$authProvider',

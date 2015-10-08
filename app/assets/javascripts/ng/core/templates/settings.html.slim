@@ -1,0 +1,11 @@
+form.form
+  h2 Settings
+  .form-group
+    label Preferred working hours per day
+    input.form-control(
+      autofocus=""
+      required=""
+      type="number"
+      ng-model="ctrl.form.preferred_working_hours_per_day"
+    )
+  button.btn.btn-success ng-click="ctrl.updateSettings()" type="submit" Update

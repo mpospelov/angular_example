@@ -5,6 +5,6 @@ class TaskPresenter < BasePresenter
   property :duration
 
   def date
-    represented.date.strftime("%D")
+    represented.date.strftime("%d.%m.%Y")
   end
 end

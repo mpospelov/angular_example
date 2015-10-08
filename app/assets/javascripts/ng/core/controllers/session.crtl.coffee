@@ -3,7 +3,6 @@ class @core.SessionCtrl
 
   @$inject: ['$rootScope','$scope', '$auth', '$location']
   constructor: ($rootScope, $scope, $auth, $location)->
-    console.log Env.currentUser
     $scope.form = {}
     @login = ->
       if !$scope.user.signedIn

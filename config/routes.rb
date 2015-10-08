@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   namespace :api do
     mount_devise_token_auth_for 'User', at: 'auth'
     resources :tasks, only: [:index, :create, :update, :destroy]
+    resource :user, only: :update
   end
 end
