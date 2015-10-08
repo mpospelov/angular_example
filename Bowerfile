@@ -1,0 +1,11 @@
+# A sample Bowerfile
+# Check out https://github.com/42dev/bower-rails#ruby-dsl-configuration for more options
+
+asset 'lodash', '3.10.1'
+asset 'angular', '1.4.7'
+asset 'bootstrap-sass', '3.3.5'
+asset 'moment', '2.10.6'
+asset 'angular-bootstrap', '0.13.4'
+asset 'jquery', '2.1.4'
+asset 'restangular', '1.5.1'
+asset 'alertify', '0.3.10'
