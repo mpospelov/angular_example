@@ -31,9 +31,14 @@
         true
       scope.prettyMinutes = (min)->
         moment().startOf('day').add(min,'minutes').format('HH:mm')
-      scope.totalTime = (tasks)->
+      scope.totalTime = _.memoize (tasks)->
         result = _.sum tasks, (t)-> t.duration
         scope.prettyMinutes(result)
-      scope.taskFilter = (value, index, array)->
-        debugger
+      , (tasks)-> _.pluck(tasks, "id").join("-")
+
+      scope.isSuccess = (prettyTime)->
+        Env.currentUser.preferred_working_hours_per_day <= parseInt(prettyTime.split(':')[0])
+
+      scope.tasksClass = (tasks)->
+        if scope.isSuccess(scope.totalTime(tasks)) then 'success' else 'danger'
 ]

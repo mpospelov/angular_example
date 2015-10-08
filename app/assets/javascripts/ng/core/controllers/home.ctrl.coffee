@@ -3,4 +3,3 @@ class @core.HomeCtrl
 
   @$inject: []
   constructor: ->
-    console.log "Hello"

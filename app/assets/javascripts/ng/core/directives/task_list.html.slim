@@ -23,7 +23,10 @@ table.table.table-striped.table-bordered
     th Total time
     th Tasks
   tbody
-    tr ng-repeat="(date, tasks) in groupedTasks | tasksFilter:filter.from:filter.to"
+    tr(
+      ng-repeat="(date, tasks) in groupedTasks | tasksFilter:filter.from:filter.to"
+      ng-class="tasksClass(tasks)"
+    )
       td ng-bind="date"
       td ng-bind="totalTime(tasks)"
       td

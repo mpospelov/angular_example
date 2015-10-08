@@ -1,5 +1,7 @@
 module Api
   class BaseController < ApplicationController
+    include DeviseTokenAuth::Concerns::SetUserByToken
+
     protected
 
     def render_object(object, status = 200)
