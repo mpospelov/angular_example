@@ -9,7 +9,7 @@ module Api
 
     def destroy
       current_user.tasks.find(params[:id]).destroy
-      render json: "Task successfully delete"
+      render json: { message: "Task successfully deleted!" }
     end
 
     def create

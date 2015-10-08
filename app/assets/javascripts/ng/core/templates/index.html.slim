@@ -1,6 +1,20 @@
-.jumbotron
-  h1 Navbar example
-  p This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.
-  p To see the difference between static and fixed top navbars, just scroll.
-  p
-    a.btn.btn-lg.btn-primary href="../../components/#navbar" role="button"  View navbar docs »
+.jumbotron ng-if="!user.signedIn"
+    h1 Hello comrade!
+    p To access your task list you have to sing in!
+    a.btn.btn-default href="#/login" Login
+    a.btn.btn-default href="#/sign_up" Sign Up
+div ng-if="user.signedIn" ng-controller="core.TasksCtrl as ctrl"
+
+  form.form-inline
+    .form-group
+      label for="description" Work On
+      input.form-control ng-model="ctrl.newTaskForm.description" type="text"
+    .form-group
+      label for="description" Date
+      input.form-control ng-model="ctrl.newTaskForm.date" type="date"
+    .form-group
+      label for="description" Duration(minutes)
+      input.form-control ng-model="ctrl.newTaskForm.duration" type="number"
+    button.btn.btn-success ng-click="ctrl.createTask()" type="submit" Add
+
+  task-list tasks="ctrl.tasks" on-delete-task="ctrl.deleteTask(task)" on-update-task="ctrl.updateTask(task, params)"

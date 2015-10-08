@@ -1,0 +1,15 @@
+table.table.table-striped
+  thead
+    th Worked on
+    th Date
+    th How long
+    th Actions
+  tbody
+    tr ng-repeat="task in tasks" id="{{ 'task-' + task.id }}"
+      td ng-bind="task.description"
+      td ng-bind="task.date"
+      td ng-bind="task.duration"
+      td
+        .btn-group
+          a.btn.btn-default ng-click="editTask(task)" Edit
+          a.btn.btn-danger ng-click="onDeleteTask({task: task})" Delete
