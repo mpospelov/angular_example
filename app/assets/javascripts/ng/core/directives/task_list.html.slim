@@ -1,15 +1,42 @@
+br
+h3 Filter
 table.table.table-striped.table-bordered
   thead
-    th Worked on
-    th Date
-    th How long
-    th Actions
+    th From
+    th To
   tbody
-    tr ng-repeat="task in tasks" id="{{ 'task-' + task.id }}"
-      td ng-bind="task.description"
-      td ng-bind="task.date"
-      td ng-bind="task.duration"
+    tr
       td
-        .btn-group
-          a.btn.btn-default ng-click="editTask(task)" Edit
-          a.btn.btn-danger ng-click="onDeleteTask({task: task})" Delete
+        input.form-control(
+          type="date"
+          ng-model="filter.from"
+        )
+      td
+        input.form-control(
+          type="date"
+          ng-model="filter.to"
+        )
+h3 Your tasks
+table.table.table-striped.table-bordered
+  thead
+    th Date
+    th Total time
+    th Tasks
+  tbody
+    tr ng-repeat="(date, tasks) in groupedTasks | tasksFilter:filter.from:filter.to"
+      td ng-bind="date"
+      td ng-bind="totalTime(tasks)"
+      td
+        table.table.table-bordered
+          thead
+            th Worked on
+            th How long
+            th Actions
+          tbody
+            tr ng-repeat="task in tasks" id="{{ 'task-' + task.id }}"
+              td ng-bind="task.description"
+              td ng-bind="prettyMinutes(task.duration)"
+              td
+                .btn-group
+                  a.btn.btn-default ng-click="editTask(task)" Edit
+                  a.btn.btn-danger ng-click="onDeleteTask({task: task})" Delete

@@ -1,10 +1,6 @@
 class TaskPresenter < BasePresenter
   property :id
   property :description
-  property :date, exec_context: :decorator
+  property :date
   property :duration
-
-  def date
-    represented.date.strftime("%d.%m.%Y")
-  end
 end
