@@ -11,8 +11,6 @@ nav.navbar.navbar-default.navbar-fixed-top
       ul.nav.navbar-nav
         li ng-if="user.signedIn"
           a href="#/settings" Settings
-        li
-          a href="#contact"  Contact
       ul.nav.navbar-nav.navbar-right ng-controller="core.SessionCtrl as ctrl"
         li ng-if="!user.signedIn"
           a href="#/login" Login
